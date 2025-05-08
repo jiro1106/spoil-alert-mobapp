@@ -10,16 +10,16 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     backgroundColor: '#f0f0f0',
-    paddingHorizontal: width * 0.05, // responsive padding
+    paddingHorizontal: width * 0.05, 
   },
   titleContainer: {
-    paddingVertical: height * 0.01, // for scaling of screens
+    paddingVertical: height * 0.01, 
     paddingHorizontal: width * 0.12,
     borderRadius: 10,
-    marginTop: height * 0.03, // for scaling of screens
+    marginTop: height * 0.03, 
   },
   title: {
-    fontSize: width * 0.1, // for scaling of screens
+    fontSize: width * 0.1, 
     fontWeight: 'bold',
     color: 'black',
     textAlign:'center',
@@ -36,42 +36,44 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#fcfcfc',
     borderRadius: 15,
-    marginVertical: height * 0.015, // for scaling of screens
+    marginVertical: height * 0.015, 
     height: height * 0.18, 
     width: width * 0.9, 
-    padding: width * 0.025, // for scaling of screens
+    padding: width * 0.025, 
     alignItems: 'center',
     
   
     // Shadow for iOS
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 }, // Direction of shadow
-    shadowOpacity: 0.2, // Transparency
-    shadowRadius: 5, // Blur effect
+    shadowOffset: { width: 0, height: 4 }, 
+    shadowOpacity: 0.2, 
+    shadowRadius: 5, 
   
   // Shadow for Android
-    elevation: 5, // Higher value = stronger shadow
+    elevation: 5, 
   },
   cardImage: {
-    width: width * 0.3, // for scaling of screens
+    width: width * 0.3, 
     height: width * 0.3,
     borderRadius: 10,
-    marginRight: width * 0.025, // for scaling of screens
+    marginRight: width * 0.025, 
   },
   textContainer: {
     flex: 1, 
+    padding:5,
     flexDirection: 'column', 
     justifyContent: 'center',
     marginLeft: width * 0.015,
   },
   cardTitle: {
-    fontSize: width * 0.07, // for scaling of screens
+    fontSize: width * 0.07, 
     fontWeight: 'bold',
     color: 'black',
     marginBottom: height * 0.005, 
   },
   cardSubTitle: {
-    fontSize: width * 0.04, // for scaling of screens
+    fontSize: 15, 
+    fontWeight: 400,
     color: 'black',
     textAlign:'justify',
   },

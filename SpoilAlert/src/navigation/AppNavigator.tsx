@@ -10,6 +10,9 @@ import HomeScreen from '../pages/HomeScreen'
 import MainMenuScreen from '../pages/MainMenuScreen'
 import InformationScreen from '../pages/InformationScreen'
 import FridgeScreen from '../pages/FridgeScreen'
+import OkraInfo from '../pages/vegInfo/OkraInfo';
+import CarrotInfo from '../pages/vegInfo/CarrotInfo';
+import LettuceInfo from '../pages/vegInfo/LettuceInfo';
 import { enableScreens } from 'react-native-screens';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -27,10 +30,10 @@ const MainMenuTabs = () => {
           headerShown: false,
           tabBarStyle: {
             backgroundColor: '#fcfcfc', // Tab background color
-            height: 70, // Adjust height
+            height: 90, // Adjust height
             borderTopWidth: 1,
             borderTopColor: '#ddd',
-            paddingTop:5,
+            paddingTop:10,
           },
           tabBarLabelStyle: {
             marginTop:3,
@@ -71,6 +74,9 @@ const AppNavigator = () => {
             <Stack.Navigator screenOptions={{ headerShown: false }}>   
                 <Stack.Screen name="Home" component={HomeScreen} />
                 <Stack.Screen name="MainMenu" component={MainMenuTabs} />
+                <Stack.Screen name="Okra" component={OkraInfo} />
+                <Stack.Screen name="Lettuce" component={LettuceInfo} />
+                <Stack.Screen name="Carrot" component={CarrotInfo} />
             </Stack.Navigator>
         </NavigationContainer>
     );

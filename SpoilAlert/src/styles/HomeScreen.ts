@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, useWindowDimensions, Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window'); // get screen size and for responsiveness
 
@@ -6,54 +6,25 @@ export const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
   },  
-  screenContainer: {
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: '#f0f0f0',
-  },
-  imagesContainer: {
-    flex:1,
-    justifyContent:'flex-start',
-    alignItems:'center',
+  bgContainer: {
+    flex:0.7,
     width: '100%',
-    height: height * 0.9, 
-    position: 'relative', 
   },
-  lettuce: {
-    position: 'absolute',
-    transform: [{ rotate: '320deg' }],
-    width: width * 0.9, 
-    height: height * 0.4, 
-    top: height * 0.04, 
-    right: width * 0.6, 
-  },
-  carrot: {
-    position: 'absolute',
-    transform: [{ rotate: '35deg' }],
-    width: width * 1.2, 
-    height: height * 0.4, 
-    top: height * -0.03, 
-    left: width * 0.29, 
-  },
-  logo: {
-    position: 'absolute',
-    resizeMode: 'contain',
-    top: height * 0.34, 
-    width: width * 0.75, 
-    height: height * 0.2, 
-    paddingBottom:20,
-    
+  background:{
+    width: '100%',               
+    height: '100%',                                
+    resizeMode: 'cover', 
   },
   textContainer: {
-    marginTop:100,
-    flex:1,
+    marginTop:-300,
+    flex:0.3,
     justifyContent:'flex-start',
     alignItems:'center',
     width:'100%',
+    backgroundColor:'#ffffff',
   },
   phrase: {
-    paddingTop:20,
-    fontSize:40,
+    fontSize:43,
     fontWeight:700,
     textAlign:'center',
     marginHorizontal:5,
