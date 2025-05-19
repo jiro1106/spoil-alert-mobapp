@@ -172,19 +172,22 @@ void loop() {
   delay(3000);
 }
 
+// Return the vegetable name if readings are at or above the minimum fresh thresholds (no upper bounds)
+// Only return "None" if below all minimums (i.e., no vegetable present)
 String determineVegetable(float h, float t, int co2, int eth) {
-  // Carrot: Optimal storage conditions
-  if (h >= 95 && h <= 98 && t >= 0 && t <= 4 && co2 >= 400 && co2 <= 800 && eth >= 0 && eth <= 1) {
+  // Carrot: Minimum fresh thresholds
+  if (h >= 95 && t >= 0 && co2 >= 400 && eth >= 0) {
     return "Carrot";
   }
-  // Okra: Optimal storage conditions
-  else if (h >= 90 && h <= 95 && t >= 7 && t <= 10 && co2 >= 400 && co2 <= 1000 && eth >= 0 && eth <= 2) {
+  // Okra: Minimum fresh thresholds
+  else if (h >= 90 && t >= 7 && co2 >= 400 && eth >= 0) {
     return "Okra";
   }
-  // Lettuce: Optimal storage conditions
-  else if (h >= 95 && h <= 98 && t >= 0 && t <= 2 && co2 >= 400 && co2 <= 600 && eth >= 0 && eth <= 0.5) {
+  // Lettuce: Minimum fresh thresholds
+  else if (h >= 95 && t >= 0 && co2 >= 400 && eth >= 0) {
     return "Lettuce";
   }
+  // Not present
   return "None";
 }
 
