@@ -136,6 +136,28 @@ float getAverage(int* arr, int size) {
   return sum / size;
 }
 
+// Return a list of vegetable names if readings are at or above the minimum fresh thresholds (no upper bounds)
+// Only return an empty list if below all minimums (i.e., no vegetable present)
+void determineVegetables(float h, float t, int co2, int eth, String* matches, int& count) {
+  count = 0;
+  // Carrot: Minimum fresh thresholds
+  if (h >= 95 && t >= 0 && co2 >= 400 && eth >= 0) {
+    matches[count++] = "Carrot";
+  }
+  // Okra: Minimum fresh thresholds
+  if (h >= 90 && t >= 7 && co2 >= 400 && eth >= 0) {
+    matches[count++] = "Okra";
+  }
+  // Lettuce: Minimum fresh thresholds
+  if (h >= 95 && t >= 0 && co2 >= 400 && eth >= 0) {
+    matches[count++] = "Lettuce";
+  }
+  // If no matches, add "None"
+  if (count == 0) {
+    matches[count++] = "None";
+  }
+}
+
 void loop() {
   // Read sensors
   float humidity = dht.readHumidity();
@@ -167,28 +189,14 @@ void loop() {
     return;
   }
 
-  String vegetable = determineVegetable(avgHumidity, avgTemperature, co2, ethylene);
-  sendToServer(avgTemperature, avgHumidity, co2, ethylene, vegetable);
+  // Get all matching vegetables
+  String matches[3];
+  int matchCount = 0;
+  determineVegetables(avgHumidity, avgTemperature, co2, ethylene, matches, matchCount);
+  for (int i = 0; i < matchCount; i++) {
+    sendToServer(avgTemperature, avgHumidity, co2, ethylene, matches[i]);
+  }
   delay(3000);
-}
-
-// Return the vegetable name if readings are at or above the minimum fresh thresholds (no upper bounds)
-// Only return "None" if below all minimums (i.e., no vegetable present)
-String determineVegetable(float h, float t, int co2, int eth) {
-  // Carrot: Minimum fresh thresholds
-  if (h >= 95 && t >= 0 && co2 >= 400 && eth >= 0) {
-    return "Carrot";
-  }
-  // Okra: Minimum fresh thresholds
-  else if (h >= 90 && t >= 7 && co2 >= 400 && eth >= 0) {
-    return "Okra";
-  }
-  // Lettuce: Minimum fresh thresholds
-  else if (h >= 95 && t >= 0 && co2 >= 400 && eth >= 0) {
-    return "Lettuce";
-  }
-  // Not present
-  return "None";
 }
 
 void sendToServer(float temperature, float humidity, int co2, int ethylene, String vegetable) {
