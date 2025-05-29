@@ -61,7 +61,7 @@ Install these libraries through Arduino IDE (Tools → Manage Libraries):
 2. Install [MongoDB](https://www.mongodb.com/try/download/community) OR go to the website and access the database there
 3. Clone this repository
 4. Navigate to project directory
-5. Install dependencies:
+5. Install dependencies (both the root folder and server folder):
    ```bash
    npm install
    ```
